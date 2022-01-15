@@ -15,6 +15,10 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding:ActivityMainBinding
     private lateinit var resultLauncher: ActivityResultLauncher<Intent>
 
+    companion object{
+        const val INTENT_KEY ="text"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -28,7 +32,7 @@ class MainActivity : AppCompatActivity() {
             ActivityResultContracts.StartActivityForResult()){
                 result: ActivityResult ->
             if (result.resultCode == Activity.RESULT_OK && result.data !=null){
-                val intent =result.data?.getStringExtra("text2").toString()
+                val intent =result.data?.getStringExtra(INTENT_KEY).toString()
                 binding.textTv.setText(intent)
             }
         }
@@ -38,10 +42,10 @@ class MainActivity : AppCompatActivity() {
         binding.clickBtn.setOnClickListener{
             if (binding.textTv.length()>0){
                 val intent = Intent(this,SecondActivity::class.java)
-                intent.putExtra("text",binding.textTv.text.toString())
+                intent.putExtra(INTENT_KEY,binding.textTv.text.toString())
                 resultLauncher.launch(intent)
             }else{
-                Toast.makeText(this,"EditText не может быть пустым!",Toast.LENGTH_LONG).show()
+                Toast.makeText(this,this.getString(R.string.toast),Toast.LENGTH_LONG).show()
             }
         }
     }

@@ -5,4 +5,5 @@
     <string name="click_1">Click</string>
     <string name="type_text">type text</string>
     <string name="click">Click</string>
+    <string name="toast">EditText не может быть пустым!</string>
 </resources>

@@ -24,11 +24,11 @@ class SecondActivity : AppCompatActivity() {
        binding.clickBtn.setOnClickListener{
            if (binding.textTv.length()>0){
                val intent = Intent()
-               intent.putExtra("text2",binding.textTv.text.toString())
+               intent.putExtra(MainActivity.INTENT_KEY,binding.textTv.text.toString())
                setResult(Activity.RESULT_OK,intent)
                finish()
            }else{
-               Toast.makeText(this,"EditText не может быть пустым!",Toast.LENGTH_LONG).show()
+               Toast.makeText(this,this.getString(R.string.toast),Toast.LENGTH_LONG).show()
 
 
 
@@ -37,7 +37,7 @@ class SecondActivity : AppCompatActivity() {
     }
 
     private fun getText() {
-        val getText : String = intent.getStringExtra("text").toString()
+        val getText : String = intent.getStringExtra(MainActivity.INTENT_KEY).toString()
         binding.textTv.setText(getText)
     }
 
