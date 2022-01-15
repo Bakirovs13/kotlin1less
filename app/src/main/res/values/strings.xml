@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">kotlin1less</string>
+    <string name="second_activity">Second Activity</string>
+    <string name="type_text_2">type text 2</string>
+    <string name="click_1">Click</string>
+    <string name="type_text">type text</string>
+    <string name="click">Click</string>
+</resources>
